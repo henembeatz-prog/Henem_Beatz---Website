@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>HENEM BEATz — Industry-Level Beats That Bring Your Vision To Life</title>
+<title>HENEM BEATz STORE</title>
 <meta name="description" content="Premium hip hop, trap, drill, afro, R&B and cinematic beats — mixed and mastered to professional standards. Custom beats, licensing, mixing & mastering by HENEM BEATz.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -769,8 +769,8 @@ footer{ padding:80px 0 30px; }
     </div>
     <div class="hero-stats">
       <div class="hero-stat"><b>250+</b><span>Beats Produced</span></div>
-      <div class="hero-stat"><b>40+</b><span>Artist Placements</span></div>
-      <div class="hero-stat"><b>24H</b><span>Avg. Turnaround</span></div>
+      <div class="hero-stat"><b>15+</b><span>Artist Placements</span></div>
+      <div class="hero-stat"><b>24-72H</b><span>Avg. Turnaround</span></div>
     </div>
   </div>
   <div class="scroll-cue"><span>Scroll</span><span class="line"></span></div>
@@ -789,7 +789,7 @@ footer{ padding:80px 0 30px; }
 <section id="about">
   <div class="wrap about-grid">
     <div class="about-visual reveal">
-      <span class="about-caption">Studio Session — Nairobi / Remote</span>
+      <span class="about-caption">Bedroom Studio — Ethiopia</span>
       <div class="eq" aria-hidden="true">
         <i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.2s"></i>
         <i style="animation-delay:.3s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.05s"></i>
@@ -798,22 +798,22 @@ footer{ padding:80px 0 30px; }
     </div>
     <div class="about-copy">
       <div class="eyebrow reveal">Who Is HENEM</div>
-      <h2 class="reveal">A producer's ear, built for artists who hear the whole record before it exists.</h2>
-      <p class="reveal">HENEM BEATz started in a bedroom studio with one interface and a stubborn belief that a beat should feel finished, not just sketched. Years and hundreds of sessions later, that's still the standard — every kick, chop, and vocal chain built to hold up on release day, not just in the demo.</p>
+      <h2 class="reveal">A young producer who started with a dead-end laptop and a left-earbud.</h2>
+      <p class="reveal">HENEM BEATz began young — producing music with a dead-end laptop and a single working earphone, in a bedroom. No proper gear, no shortcuts, just the will to make it work. That same grind now goes into every beat, mix, and master that leaves this studio.</p>
       <div class="about-mv reveal">
         <div>
           <h4>Mission</h4>
-          <p>Give independent artists the sound of a major-label budget, at an independent-artist price.</p>
+          <p>As a producer and an artist, I want other producers and artists to never go through what I went through in my career. I want everything simplified so no producer or artist ever has to struggle searching for beats and the rest.</p>
         </div>
         <div>
           <h4>Vision</h4>
-          <p>Become the first call for artists who want their next single to sound like an event.</p>
+          <p>The best beat store every artist needs.</p>
         </div>
       </div>
       <div class="about-achievements reveal">
-        <div><b>7 Yrs</b><span>Producing Professionally</span></div>
-        <div><b>15+</b><span>Genres Mastered</span></div>
-        <div><b>3</b><span>Studio Rooms</span></div>
+        <div><b>5 Yrs</b><span>Producing Professionally</span></div>
+        <div><b>5+</b><span>Genres Worked In</span></div>
+        <div><b>1</b><span>Home Studio</span></div>
       </div>
     </div>
   </div>
@@ -1070,6 +1070,10 @@ footer{ padding:80px 0 30px; }
     <p class="form-note" id="paypalNotice" style="display:none;">
       PayPal isn't connected yet — add your Client ID in <code>data.js</code> (see README) to accept real payments here.
     </p>
+    <div id="telebirrBox" style="margin-top:14px; padding-top:14px; border-top:1px solid var(--c-line);">
+      <p class="form-note" style="margin-top:0; margin-bottom:10px;">Or pay with Telebirr: send the total to <b id="telebirrNumberText" style="color:var(--c-bronze-bright); font-family:var(--f-mono);"></b>, then tap below to confirm.</p>
+      <button class="btn btn-ghost btn-block" id="telebirrBtn" type="button">Pay with Telebirr — Confirm on WhatsApp</button>
+    </div>
   </div>
 </div>
 
@@ -1220,7 +1224,21 @@ footer{ padding:80px 0 30px; }
    keeps casual visitors out of the upload panel on your site.
    ---------------------------------------------------------- */
 const ADMIN_CONFIG = {
-  password: "henem-admin-2026"
+  password: "HenemBeatz"
+};
+
+/* ----------------------------------------------------------
+   TELEBIRR PAYMENT (manual — no live API, works everywhere)
+   ------------------------------------------------------------
+   Since PayPal isn't connected yet, checkout shows a Telebirr
+   option instead: the customer sends the total to this number,
+   then taps a button that opens WhatsApp with their order
+   pre-filled so you can confirm and deliver the beat manually.
+   Update the number if it ever changes.
+   ---------------------------------------------------------- */
+const TELEBIRR_CONFIG = {
+  number: "+251 952 806 434",
+  whatsappNumber: "251952806434" // same number, digits only, no + or spaces — used for the WhatsApp link
 };
 
 /* ----------------------------------------------------------
@@ -1280,18 +1298,18 @@ const LICENSES = [
    comfortable editing SVG. Everything else is plain text.
    ---------------------------------------------------------- */
 const SERVICES = [
-  { name:"Custom Beat Production", desc:"A one-of-one beat built from scratch to your reference, genre, and BPM — yours to keep exclusive.", price:"From $150", time:"3–5 days",
+  { name:"Custom Beat Production", desc:"A one-of-one beat built from scratch to your reference, genre, and BPM — yours to keep exclusive.", price:"$29.99", time:"Within 5 days",
     icon:'<path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/>' },
-  { name:"Exclusive Licensing", desc:"Full ownership transfer on an existing beat — it comes off the store the moment it's yours.", price:"From $250", time:"Instant",
+  { name:"Exclusive Licensing", desc:"Full ownership transfer on an existing beat — it comes off the store the moment it's yours.", price:"$49.99", time:"ASAP",
     icon:'<path d="M12 2 3 7v6c0 5 4 9 9 9s9-4 9-9V7z"/><path d="m9 12 2 2 4-4"/>' },
-  { name:"Mixing", desc:"Balance, depth, and clarity across every element of your vocal and instrumental session.", price:"From $60", time:"48 hrs",
+  { name:"Mixing", desc:"Balance, depth, and clarity across every element of your vocal and instrumental session.", price:"$19.99", time:"Within 5 days",
     icon:'<path d="M4 21V9M4 6V3M12 21v-6M12 12V3M20 21v-3M20 15V3"/><circle cx="4" cy="8" r="2"/><circle cx="12" cy="9" r="2"/><circle cx="20" cy="17" r="2"/>' },
-  { name:"Mastering", desc:"Loudness-matched, platform-ready masters that translate across every speaker and stream.", price:"From $40", time:"24 hrs",
+  { name:"Mastering", desc:"Loudness-matched, platform-ready masters that translate across every speaker and stream.", price:"$19.99", time:"Within 5 days",
     icon:'<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/>' },
-  { name:"Vocal Editing", desc:"Pitch correction, timing, and comping so your take sits perfectly in the pocket.", price:"From $35", time:"24 hrs",
+  { name:"Vocal Editing", desc:"Pitch correction, timing, and comping so your take sits perfectly in the pocket.", price:"$39.99", time:"Within 5 days",
     icon:'<path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1M12 18v4M9 22h6"/>' },
-  { name:"Sound Design & Restoration", desc:"Custom textures, foley, and cleanup for cinematic cues or damaged vocal takes.", price:"From $50", time:"2–4 days",
-    icon:'<path d="M2 10v4h4l5 5V5L6 10H2z"/><path d="M16 8a5 5 0 0 1 0 8M19.5 5a10 10 0 0 1 0 14"/>' },
+  { name:"Video Shooting & Editing", desc:"On-location or remote video shooting and editing for your visuals, priced per project.", price:"On a Deal", time:"By arrangement",
+    icon:'<path d="m23 7-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2"/>' },
 ];
 
 /* ----------------------------------------------------------
@@ -1324,24 +1342,28 @@ const TESTIMONIALS = [
    Replace the placeholder email/phone/handle with your real ones.
    ---------------------------------------------------------- */
 const CONTACT = [
-  { label:"Email", value:"bookings@henembeatz.com", icon:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/>' },
-  { label:"WhatsApp", value:"+1 (000) 000-0000", icon:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/>' },
-  { label:"Telegram", value:"@henembeatz", icon:'<path d="m22 2-7 20-4-9-9-4 20-7z"/>' },
-  { label:"Studio Hours", value:"Mon – Sat · 10:00 – 22:00", icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>' },
+  { label:"Email", value:"henembeatz@gmail.com", url:"mailto:henembeatz@gmail.com", icon:'<rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7 10-7"/>' },
+  { label:"WhatsApp", value:"+251 952 806 434", url:"https://wa.me/251952806434", icon:'<path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.4L3 20l1.1-5.3A8.5 8.5 0 1 1 21 11.5z"/>' },
+  { label:"Telegram", value:"@henem_beatz369", url:"https://t.me/henem_beatz369", icon:'<path d="m22 2-7 20-4-9-9-4 20-7z"/>' },
+  { label:"Studio Hours", value:"Open 24/7", url:"", icon:'<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>' },
 ];
 
 /* ----------------------------------------------------------
    SOCIAL LINKS (footer icon row) — icons are decorative SVG,
    leave those alone, just update the `label` if needed and
-   wire the real URLs into index.html's footer <a> tags.
+   paste real URLs into `url`.
    ---------------------------------------------------------- */
+/* Paste your real profile links between the quotes in "url:".
+   Leave url:"#" for any platform you don't use yet — it just
+   won't go anywhere when clicked, but the icon still shows. */
 const SOCIALS = [
-  { label:"Instagram", icon:'<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>' },
-  { label:"TikTok", icon:'<path d="M16 3v10.5a4 4 0 1 1-4-4c.3 0 .7 0 1 .1V6.5A6.5 6.5 0 1 0 19 13V8s-2-.2-3-3z"/>' },
-  { label:"YouTube", icon:'<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/>' },
-  { label:"Spotify", icon:'<circle cx="12" cy="12" r="9"/><path d="M7 10c3-1 8-1 10 1M7 13c2.5-.7 6.5-.7 8.5.7M7.5 16c2-.5 5-.5 6.5.5"/>' },
-  { label:"SoundCloud", icon:'<path d="M3 15v2M6 13v4M9 11v6M12 9v8M15 10a4 4 0 0 1 4 4 v2h-4z"/>' },
-  { label:"BeatStars", icon:'<path d="m12 2 2.7 6.6L22 9l-5.3 4.6L18 21l-6-3.6L6 21l1.3-7.4L2 9l7.3-.4z"/>' },
+  { label:"Instagram", url:"https://www.instagram.com/henem_beatz", icon:'<rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/>' },
+  { label:"Telegram", url:"https://t.me/henem_beatz369", icon:'<path d="m22 2-7 20-4-9-9-4 20-7z"/>' },
+  { label:"TikTok", url:"#", icon:'<path d="M16 3v10.5a4 4 0 1 1-4-4c.3 0 .7 0 1 .1V6.5A6.5 6.5 0 1 0 19 13V8s-2-.2-3-3z"/>' },
+  { label:"YouTube", url:"https://youtube.com/@henem_beatz", icon:'<rect x="2" y="5" width="20" height="14" rx="4"/><path d="m10 9 5 3-5 3z"/>' },
+  { label:"Spotify", url:"#", icon:'<circle cx="12" cy="12" r="9"/><path d="M7 10c3-1 8-1 10 1M7 13c2.5-.7 6.5-.7 8.5.7M7.5 16c2-.5 5-.5 6.5.5"/>' },
+  { label:"SoundCloud", url:"#", icon:'<path d="M3 15v2M6 13v4M9 11v6M12 9v8M15 10a4 4 0 0 1 4 4 v2h-4z"/>' },
+  { label:"BeatStars", url:"#", icon:'<path d="m12 2 2.7 6.6L22 9l-5.3 4.6L18 21l-6-3.6L6 21l1.3-7.4L2 9l7.3-.4z"/>' },
 ];
 
 /* ----------------------------------------------------------
@@ -1702,7 +1724,7 @@ beatGrid.addEventListener("click", e=>{
     <div class="price-card${i===2?" featured":""}">
       <div class="price-body">
         <div class="price-name">${l.name}</div>
-        <div class="price-amount">${fmt(24.99*l.mult)}<span> one-time</span></div>
+        <div class="price-amount">${fmt(29.99*l.mult)}<span> one-time</span></div>
       </div>
       <ul class="price-list">${featureSets[i].map(f=>`<li>${check}${f}</li>`).join("")}</ul>
       <button class="btn btn-ghost btn-block" data-license-cta="${i}">Choose License</button>
@@ -1720,7 +1742,7 @@ beatGrid.addEventListener("click", e=>{
 (function renderContact(){
   const list = document.getElementById("contactInfoList");
   list.innerHTML = CONTACT.map(c=>`
-    <a href="#">
+    <a href="${c.url || '#'}" ${c.url ? 'target="_blank" rel="noopener"' : ''}>
       <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${c.icon}</svg></span>
       <span><small>${c.label}</small>${c.value}</span>
     </a>
@@ -1729,7 +1751,7 @@ beatGrid.addEventListener("click", e=>{
 (function renderFooterSocial(){
   const wrap = document.getElementById("footerSocial");
   wrap.innerHTML = SOCIALS.map(s=>`
-    <a class="icon-btn" href="#" aria-label="${s.label}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${s.icon}</svg></a>
+    <a class="icon-btn" href="${s.url || '#'}" target="_blank" rel="noopener" aria-label="${s.label}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">${s.icon}</svg></a>
   `).join("");
 })();
 
@@ -1812,6 +1834,33 @@ function renderCartDrawer(){
   const total = state.cart.reduce((sum,i)=>sum+cartLineTotal(i),0);
   totalEl.textContent = fmt(total);
 }
+
+/* ----------------------------------------------------------
+   TELEBIRR (manual payment) — shows the number, and builds a
+   WhatsApp message pre-filled with the order so the customer
+   can confirm their payment and you can deliver the beat.
+   ---------------------------------------------------------- */
+const telebirrNumberText = document.getElementById("telebirrNumberText");
+if(telebirrNumberText) telebirrNumberText.textContent = TELEBIRR_CONFIG.number;
+
+document.getElementById("telebirrBtn").addEventListener("click", ()=>{
+  if(state.cart.length===0){ showToast("Your cart is empty"); return; }
+  const total = state.cart.reduce((sum,i)=>sum+cartLineTotal(i),0);
+  const lines = state.cart.map(item=>{
+    const beat = beatById(item.beatId);
+    const lic = LICENSES[item.license];
+    return `- ${beat.title} (${lic.name}) — ${fmt(cartLineTotal(item))}`;
+  }).join("\n");
+  const message =
+`Hi HENEM BEATz! I just sent ${fmt(total)} to ${TELEBIRR_CONFIG.number} via Telebirr for:
+${lines}
+
+Total: ${fmt(total)}
+
+Here's my payment screenshot 👇`;
+  const url = `https://wa.me/${TELEBIRR_CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
+  window.open(url, "_blank", "noopener");
+});
 
 document.getElementById("cartBody").addEventListener("change", e=>{
   const sel = e.target.closest("[data-license-select]");
