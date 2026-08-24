@@ -717,6 +717,25 @@ footer{ padding:80px 0 30px; }
 
 </style>
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
+   <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyA-_MZr102_I63Mxq7GK85uvoGY6qr0R8w",
+    authDomain: "henem-beatz.firebaseapp.com",
+    projectId: "henem-beatz",
+    storageBucket: "henem-beatz.firebasestorage.app",
+    messagingSenderId: "355065959927",
+    appId: "1:355065959927:web:a5979715c9996a8c674af2"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+</script>
 </head>
 <body>
 
@@ -2376,24 +2395,6 @@ document.documentElement.style.setProperty(
 Telegram.WebApp.themeParams.bg_color
 );
 </script>
-   <script type="module">
-  // Import the functions you need from the SDKs you need
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyA-_MZr102_I63Mxq7GK85uvoGY6qr0R8w",
-    authDomain: "henem-beatz.firebaseapp.com",
-    projectId: "henem-beatz",
-    storageBucket: "henem-beatz.firebasestorage.app",
-    messagingSenderId: "355065959927",
-    appId: "1:355065959927:web:a5979715c9996a8c674af2"
-  };
-
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-</script>
+   
 </body>
 </html>
