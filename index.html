@@ -1215,6 +1215,33 @@ footer{ padding:80px 0 30px; }
 </div>
 
 <script>
+   
+   import { initializeApp } from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import { getFirestore }
+from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+import { getStorage }
+from 
+"https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+
+const firebaseConfig = {
+
+PASTE YOUR FIREBASE CONFIG HERE
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+
+const db = getFirestore(app);
+
+const storage = getStorage(app);
+   
   Telegram.WebApp.ready();
 Telegram.WebApp.expand();
 /* ============================================================
